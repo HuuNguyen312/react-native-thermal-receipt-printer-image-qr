@@ -461,18 +461,9 @@ const NetPrinter = {
    * @param opts
    */
   printImage: function (imgUrl: string, opts: PrinterImageOptions = {}) {
-    if (Platform.OS === "ios") {
-      RNNetPrinter.printImageData(imgUrl, opts, (error: Error) =>
+    RNNetPrinter.printImageData(imgUrl, opts, (error: Error) =>
         console.warn(error)
-      );
-    } else {
-      RNNetPrinter.printImageData(
-        imgUrl,
-        opts?.imageWidth ?? 0,
-        opts?.imageHeight ?? 0,
-        (error: Error) => console.warn(error)
-      );
-    }
+    );
   },
   /**
    * base 64 string
@@ -480,18 +471,12 @@ const NetPrinter = {
    * @param opts
    */
   printImageBase64: function (Base64: string, opts: PrinterImageOptions = {}) {
-    if (Platform.OS === "ios") {
-      RNNetPrinter.printImageBase64(Base64, opts, (error: Error) =>
-        console.warn(error)
-      );
-    } else {
-      RNNetPrinter.printImageBase64(
+    RNNetPrinter.printImageBase64(
         Base64,
         opts?.imageWidth ?? 0,
         opts?.imageHeight ?? 0,
         (error: Error) => console.warn(error)
-      );
-    }
+    );
   },
 
   /**
